@@ -1,0 +1,116 @@
+📌 Explicación rápida de las RegEx usadas
+
+^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{3,}$ → Solo letras (incluye acentos y ñ), mínimo 3.
+
+^[^\s@]+@[^\s@]+\.[^\s@]+$ → Formato de correo básico (texto@dominio.com).
+
+^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{6,}$ → Contraseña con:
+
+Al menos una mayúscula
+
+Al menos un número
+
+Al menos un símbolo especial
+
+Mínimo 6 caracteres
+
+^[0-9]{10}$ → Exactamente 10 dígitos (teléfonos en Colombia, por ejemplo).
+
+✅ Ventajas
+
+Súper flexible y potente.
+
+Puedes crear cualquier regla que necesites.
+
+Permite validaciones muy estrictas (ej: formatos de cédula, placas, URLs, etc.).
+
+⚠️ Desventajas
+
+Las RegEx pueden ser difíciles de leer si son muy largas.
+
+Necesitas probarlas para evitar errores de validación.
+
+
+🟢 ¿Qué es una Expresión Regular (RegEx)?
+
+Una RegEx es un patrón (una especie de mini-lenguaje) que se usa para buscar, validar o reemplazar texto.
+
+Ejemplo:
+
+El correo marlonete@correo.com debe tener texto + @ + texto + . + dominio.
+
+Una RegEx para eso sería:
+
+/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+
+👉 Se usan en casi todos los lenguajes de programación (JavaScript, Python, PHP, Java, etc.).
+
+🟡 Cómo se usan en JavaScript
+
+En JS hay 2 formas:
+
+1. Con /patron/ directamente
+let regex = /^[0-9]{10}$/; 
+console.log(regex.test("3001234567")); // true ✅
+console.log(regex.test("abc123"));     // false ❌
+
+2. Con el objeto RegExp
+let regex = new RegExp("^[0-9]{10}$");
+console.log(regex.test("3001234567")); // true
+
+
+👉 Lo más usado es la primera forma (/patron/).
+
+🟠 Métodos importantes en JS con RegEx
+Método	Para qué sirve	Ejemplo
+.test(cadena)	Verifica si cumple el patrón (true/false)	/\d+/.test("123") → true
+.exec(cadena)	Devuelve más info de la coincidencia	/\d+/.exec("abc123") → ["123"]
+.match()	Busca coincidencias dentro de un string	"hola123".match(/\d+/) → ["123"]
+.replace()	Reemplaza partes del texto según el patrón	"abc123".replace(/\d+/, "***") → "abc***"
+.split()	Divide un string según el patrón	"uno,dos,tres".split(/,/) → ["uno","dos","tres"]
+🔵 Símbolos más comunes en RegEx
+Símbolo	Significado	Ejemplo
+^	Inicio de la cadena	^Hola → debe empezar con "Hola"
+$	Fin de la cadena	mundo$ → debe terminar en "mundo"
+.	Cualquier carácter	h.t → "hat", "hot", "hit"
+\d	Un dígito (0-9)	\d\d → "23"
+\w	Una letra, número o guion bajo	\w+ → "Hola123"
+\s	Un espacio	\s → "Hola mundo"
++	Uno o más	\d+ → "123"
+*	Cero o más	\d* → "", "5", "123"
+?	Opcional (0 o 1)	colou?r → "color" o "colour"
+{n,m}	Rango de repeticiones	\d{3,5} → "123" o "12345"
+[]	Conjunto de caracteres permitidos	[aeiou] → cualquier vocal
+[^]	Negación (cualquier cosa excepto)	[^0-9] → no números
+()	Agrupar	(abc){2} → "abcabc"
+`	`	OR (alternativa)
+🟣 Ejemplos útiles en validación
+
+Correo electrónico
+
+/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+
+Contraseña segura (mínimo 6 caracteres, una mayúscula, un número, un símbolo)
+
+/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{6,}$/
+
+
+Teléfono de 10 dígitos
+
+/^[0-9]{10}$/
+
+
+Solo letras y espacios
+
+/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/
+
+
+✅ En resumen:
+
+RegEx = patrones para validar y manipular texto.
+
+En JS se usan con .test(), .match(), .replace(), etc.
+
+Son clave para validaciones más estrictas (formularios, datos de usuario, búsqueda en texto, etc.).
