@@ -1,0 +1,28 @@
+
+📌 Explicación
+
+event.preventDefault(): evita que el formulario se envíe si hay errores.
+
+.trim(): elimina espacios innecesarios.
+
+Validación manual:
+
+Nombre mínimo 3 letras.
+
+Correo con una expresión regular (RegEx).
+
+Contraseña con mínimo 6 caracteres.
+
+✅ Ventajas
+
+Control total de las reglas y mensajes.
+
+Puedes personalizar todo (alertas, mensajes en pantalla, estilos, etc.).
+
+Puedes detener o permitir el envío según tus condiciones.
+
+⚠️ Desventajas
+
+Más código que HTML5.
+
+Necesitas manejar errores manualmente.
