@@ -1,0 +1,25 @@
+📌 ¿Qué pasa aquí?
+
+required → obliga a llenar el campo.
+
+minlength="3" y maxlength="10" → controla la longitud del texto.
+
+type="email" → el navegador valida que tenga formato de correo.
+
+type="number" min="18" max="60" → solo números entre 18 y 60.
+
+👉 Si intentas enviar el formulario vacío o con valores inválidos, el navegador muestra mensajes de error automáticos (sin JavaScript).
+
+✅ Ventajas
+
+Muy fácil de usar.
+
+No necesitas programar nada.
+
+Funciona en la mayoría de navegadores modernos.
+
+⚠️ Desventajas
+
+No puedes personalizar fácilmente los mensajes de error.
+
+No cubre reglas más avanzadas (ej: contraseñas seguras, validar dos campos iguales, etc.).
